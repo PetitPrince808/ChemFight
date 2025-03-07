@@ -16,7 +16,6 @@ export class MainMenu extends Phaser.Scene {
 
         this.add.text(centerX, 100, 'CHEMFIGHT', { fontSize: '52px', fill: '#fff' }).setOrigin(0.5);
 
-        // Ajout des boutons
         this.createButton('Jouer', centerX, centerY - 100, 'CharacterSelect');
         this.createButton('Touches', centerX, centerY - 50, 'Controls');
         this.createButton('Paramètres', centerX, centerY, 'Settings');
