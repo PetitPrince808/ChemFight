@@ -9,7 +9,7 @@ export class Start extends Phaser.Scene {
         this.load.image('logo', 'assets/phaser.png');
 
         //  The ship sprite is CC0 from https://ansimuz.itch.io - check out his other work!
-        this.load.spritesheet('ship', 'assets/spaceship.png', { frameWidth: 176, frameHeight: 96 });
+        this.load.spritesheet('ship', 'assets/Characters/Knight/knight1/Knight_1_Attack1.png', { frameWidth: 86, frameHeight: 86 });
     }
 
     create() {
@@ -21,8 +21,8 @@ export class Start extends Phaser.Scene {
 
         ship.anims.create({
             key: 'fly',
-            frames: this.anims.generateFrameNumbers('ship', { start: 0, end: 2 }),
-            frameRate: 15,
+            frames: this.anims.generateFrameNumbers('ship', { start: 0, end: 4 }),
+            frameRate: 10,
             repeat: -1
         });
 
@@ -39,7 +39,22 @@ export class Start extends Phaser.Scene {
     }
 
     update() {
+        this.keys = this.input.keyboard.addKeys({ 'up': Phaser.Input.Keyboard.KeyCodes.W, 'left': Phaser.Input.Keyboard.KeyCodes.A, 'down': Phaser.Input.Keyboard.KeyCodes.S, 'right': Phaser.Input.Keyboard.KeyCodes.D });
         this.background.tilePositionX += 2;
+
+        this.cursors = this.input.keyboard.createCursorKeys();
+
+        if (this.cursors.left.isDown) {
+            player1.setVelocityX(-160);
+        } else if (this.cursors.right.isDown) {
+            player1.setVelocityX(160);
+        }
+
+        if (this.keys.left.isDown) {
+            player2.setVelocityX(-160);
+        } else if (this.keys.right.isDown) {
+            player2.setVelocityX(160);
+        }
     }
     
 }
