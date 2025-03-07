@@ -13,7 +13,7 @@ ChemFight est un jeu de combat en 1v1 où les joueurs utilisent des éléments c
 ## Installation
 
 1. Clonez le dépôt : `git clone https://github.com/VotreNomUtilisateur/ChemFight.git`
-2. Ouvrez `index.html` dans votre navigateur.
+2. Ouvrez `HomePage.html` dans votre navigateur.
 
 ## Contribution
 
