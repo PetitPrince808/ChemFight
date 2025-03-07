@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChemFight</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #121212;
+            color: #e0e0e0;
+            overflow: hidden;
+            position: relative;
+        }
+        header, footer {
+            width: 100%;
+            text-align: center;
+            padding: 20px;
+            background-color: #211f30;
+            border-top: 3px solid #9a1b8d;
+            border-bottom: 3px solid #9a1b8d;
+            z-index: 1;
+        }
+        header h1 {
+            font-size: 2.5em;
+            margin: 0.5em 0;
+            color: #b39ddb;
+        }
+        header p {
+            font-size: 1.2em;
+            margin: 0.5em 0;
+            color: #ce93d8;
+        }
+        main {
+            flex: 1;
+            width: 100%;
+            max-width: 1200px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+        #game-container {
+            width: 800px;
+            height: 600px;
+            border: 0px solid #9a1b8d;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            margin-bottom: 20px;
+        }
+        #controls {
+            margin-top: 20px;
+        }
+        button {
+            padding: 15px 30px;
+            font-size: 18px;
+            background-color: #4a148c;
+            color: #b39ddb;
+            border: 2px solid #9a1b8d;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        button:hover {
+            background-color: #9a1b8d;
+            color: #e0e0e0;
+        }
+        .ember {
+            position: absolute;
+            bottom: -50px;
+            width: 5px;
+            height: 10px;
+            background-color: #ce93d8;
+            border-radius: 50% 50% 0 0;
+            opacity: 0;
+            animation: ember-rise 4s ease-in-out infinite, ember-flicker 3s ease-in-out infinite;
+        }
+        @keyframes ember-rise {
+            0% {
+                bottom: -50px;
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                bottom: 100vh;
+                opacity: 0;
+            }
+        }
+        @keyframes ember-flicker {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.6;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>ChemFight</h1>
+        <p>Plongez dans un combat épique où les éléments s'affrontent</p>
+    </header>
+
+    <main>
+        <div id="game-container">
+            <!-- Le jeu Phaser.js sera rendu ici -->
+        </div>
+        <div id="controls">
+            <button id="restart-button">Relancer la Partie</button>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Votre Nom. Tous droits réservés.</p>
+    </footer>
+
+    <!-- Cendres enflammées -->
+    <div class="ember" style="left: 10%; animation-delay: 0s; animation-duration: 4s;"></div>
+    <div class="ember" style="left: 40%; animation-delay: 1s; animation-duration: 5s;"></div>
+    <div class="ember" style="left: 70%; animation-delay: 2s; animation-duration: 3.5s;"></div>
+    <div class="ember" style="left: 20%; animation-delay: 3s; animation-duration: 4.5s;"></div>
+    <div class="ember" style="left: 50%; animation-delay: 4s; animation-duration: 5.5s;"></div>
+    <div class="ember" style="left: 80%; animation-delay: 5s; animation-duration: 4s;"></div>
+
+    <!-- Inclure la bibliothèque Phaser.js -->
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3/dist/phaser.min.js"></script>
+    <!-- Inclure le fichier JavaScript principal du jeu -->
+    <script src="js/game.js"></script>
+</body>
+</html>
